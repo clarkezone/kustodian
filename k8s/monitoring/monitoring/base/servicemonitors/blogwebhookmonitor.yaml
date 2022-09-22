@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: webhook-servicemonitor
+  labels:
+    name: webhook-servicemonitor
+spec:
+  selector:
+    matchLabels:
+      app: jekyllpreview
+  namespaceSelector:
+    matchNames:
+    - jekyllpreviewv2
+  endpoints:
+  - port: webhook

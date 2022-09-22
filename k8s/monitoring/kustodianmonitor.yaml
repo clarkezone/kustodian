@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  namespace: kube-system
+  name: kustodian-servicemonitor
+  labels:
+    name: kustodian-servicemonitor
+spec:
+  selector:
+    matchLabels:
+      app: kustodian
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  endpoints:
+  - port: metrics

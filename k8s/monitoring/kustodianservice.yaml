@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kustodian-metrics-service
+  namespace: kube-system
+  labels:
+    app: kustodian
+spec:
+  selector:
+    app: kustodian
+  ports:
+  - name: metrics
+    port: 9090
