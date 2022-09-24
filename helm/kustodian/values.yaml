@@ -5,4 +5,4 @@ kustodian:
   container:
     imageRegistry: docker.io
     imageRepository: clarkezone/kustodian
-    imageTag: main-069a9ef
+    imageTag: metrics2-3dcb91f
