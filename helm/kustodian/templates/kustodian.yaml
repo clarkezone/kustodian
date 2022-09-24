@@ -131,4 +131,4 @@ spec:
           name: var
       nodeSelector:
         kubernetes.io/os: linux
-        kubernetes.azure.com/agentpool: poo3
+        kubernetes.azure.com/agentpool: pool2

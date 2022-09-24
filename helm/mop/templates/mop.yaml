@@ -118,7 +118,7 @@ spec:
 {{- end }}
       nodeSelector:
         beta.kubernetes.io/os: linux
-        kubernetes.azure.com/agentpool: poo3
+        kubernetes.azure.com/agentpool: pool2
       terminationGracePeriodSeconds: 0
       volumes:
         - hostPath:
