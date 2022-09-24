@@ -46,17 +46,8 @@ spec:
         - mountPath: /etc/grafana/provisioning/dashboards
           name: grafana-dashboards
           readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/traefik
-          name: dashboard-traefik
-          readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/lonhorn
-          name: dashboard-longhorn
-          readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/blog
-          name: dashboard-blog
-          readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/certmanager
-          name: dashboard-certmanager
+        - mountPath: /grafana-dashboard-definitions/0/kustodian
+          name: dashboard-kustodian
           readOnly: false
       securityContext:
         fsGroup: 65534
