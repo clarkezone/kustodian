@@ -117,7 +117,8 @@ spec:
               mountPath: {{ .Values.mop.everyoneWriteablePath }}
 {{- end }}
       nodeSelector:
-        kubernetes.io/os: linux
+        beta.kubernetes.io/os: linux
+        kubernetes.azure.com/agentpool: poo3
       terminationGracePeriodSeconds: 0
       volumes:
         - hostPath:
