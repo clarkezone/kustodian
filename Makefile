@@ -1,6 +1,7 @@
 .DEFAULT: all
 .PHONY: all clean image publish-image
 
+IMAGE_REPO=docker.io
 DH_ORG=clarkezone
 VERSION=$(shell git symbolic-ref --short HEAD)-$(shell git rev-parse --short HEAD)
 SUDO=$(shell docker info >/dev/null 2>&1 || echo "sudo -E")
@@ -22,11 +23,11 @@ cmd/kustodian/kustodian: cmd/kustodian/*.go
 build/.image.done: cmd/kustodian/Dockerfile cmd/kustodian/kustodian
 	mkdir -p build
 	cp $^ build
-	$(SUDO) docker build -t ghcr.io/$(DH_ORG)/kustodian/kustodian -f build/Dockerfile ./build
-	$(SUDO) docker tag ghcr.io/$(DH_ORG)/kustodian/kustodian ghcr.io/$(DH_ORG)/kustodian/kustodian:$(VERSION)
+	$(SUDO) docker build -t $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian -f build/Dockerfile ./build
+	$(SUDO) docker tag $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian:$(VERSION)
 	touch $@
 
 image: build/.image.done
 
 publish-image: image
-	$(SUDO) docker push ghcr.io/$(DH_ORG)/kustodian/kustodian:$(VERSION)
+	$(SUDO) docker push $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian:$(VERSION)
