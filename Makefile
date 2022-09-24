@@ -23,11 +23,11 @@ cmd/kustodian/kustodian: cmd/kustodian/*.go
 build/.image.done: cmd/kustodian/Dockerfile cmd/kustodian/kustodian
 	mkdir -p build
 	cp $^ build
-	$(SUDO) docker build -t $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian -f build/Dockerfile ./build
-	$(SUDO) docker tag $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian:$(VERSION)
+	$(SUDO) docker build -t $(IMAGE_REPO)/$(DH_ORG)/kustodian -f build/Dockerfile ./build
+	$(SUDO) docker tag $(IMAGE_REPO)/$(DH_ORG)/kustodian $(IMAGE_REPO)/$(DH_ORG)/kustodian:$(VERSION)
 	touch $@
 
 image: build/.image.done
 
 publish-image: image
-	$(SUDO) docker push $(IMAGE_REPO)/$(DH_ORG)/kustodian/kustodian:$(VERSION)
+	$(SUDO) docker push $(IMAGE_REPO)/$(DH_ORG)/kustodian:$(VERSION)
